@@ -1,5 +1,7 @@
 from datetime import datetime, date, timedelta
 
+from dateutil.relativedelta import relativedelta
+
 
 class Temporis:
     # Today date
@@ -39,7 +41,7 @@ class Temporis:
 
     @staticmethod
     def add_months(dt: datetime, months: int) -> datetime:
-        return dt.replace(month=dt.month + months)
+        return dt + relativedelta(months=1)
 
     # Business logic
     @staticmethod

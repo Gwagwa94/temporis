@@ -7,6 +7,8 @@ authors = [
 ]
 dependencies = [
     "tzdata>=2024.1",
+    "pytz>=2024.2",
+    "python-dateutil>=2.9.0.post0",
 ]
 requires-python = ">=3.10"
 readme = "README.md"
