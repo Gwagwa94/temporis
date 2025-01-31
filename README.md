@@ -1,78 +1,124 @@
-  <h1 align="center">TEMPORIS</h1>
-</p>
+<h1 align="center">TEMPORIS</h1>
+
 <p align="center">
-    <em>Temporis is a Python library for elegantly managing and transforming <code>dates</code> and <code>times</code>.</em>
+    <em>An elegant Python library for managing and transforming dates and times</em>
 </p>
+
 <p align="center">
-	<img src="https://img.shields.io/github/license/jalvarezgom/temporis?style=default&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="license">
-	<img src="https://img.shields.io/github/last-commit/jalvarezgom/temporis?style=default&logo=git&logoColor=white&color=0080ff" alt="last-commit">
-	<img src="https://img.shields.io/github/languages/top/jalvarezgom/temporis?style=default&color=0080ff" alt="repo-top-language">
-    <img src="https://img.shields.io/pypi/v/temporis.svg?style=default&color=0080ff" alt="repo-top-language">
+    <a href="https://github.com/jalvarezgom/temporis/blob/main/LICENSE">
+        <img src="https://img.shields.io/github/license/jalvarezgom/temporis?style=flat-square&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="License">
+    </a>
+    <a href="https://github.com/jalvarezgom/temporis/commits">
+        <img src="https://img.shields.io/github/last-commit/jalvarezgom/temporis?style=flat-square&logo=git&logoColor=white&color=0080ff" alt="Last commit">
+    </a>
+    <a href="https://pypi.org/project/temporis/">
+        <img src="https://img.shields.io/pypi/v/temporis.svg?style=flat-square&logo=pypi&logoColor=white&color=0080ff" alt="PyPI Version">
+    </a>
+    <a href="https://pypi.org/project/temporis/">
+        <img src="https://img.shields.io/pypi/pyversions/temporis?style=flat-square&logo=python&logoColor=white&color=0080ff" alt="Python Versions">
+    </a>
 </p>
 
+## 🚀 Description
 
------
-## Overview
-Temporis is a developer tool created to help with the problem of using and managing dates in Python. Supporting the use and change of the different time uses, operate and modify dates and their formats.
+Temporis is a Python library designed to simplify date and time handling. It provides an elegant and functional interface to perform common date operations, manage time zones, and format dates consistently.
 
-## Features
-- Definition and use of different time changes
-- Format for formatting dates to different <code>str</code>, <code>datetime</code> or <code>date</code> format
-- Performing different types of operations with a <code>datetime</code>
-  - Add or subtract hours, days, months
-  - Get the next business day, quarter, semester or year
-  - Identify if a datetime is a business day, weekend or holiday
-  - Get the difference between two <code>datetime</code>
+## ✨ Key Features
 
-## Installation
+- 🔄 Flexible timezone conversion
+- 📅 Advanced date operations:
+  - Add and subtract hours, days, and months
+  - Business day calculations
+  - Quarter and semester determination
+  - Holiday identification
+- 🎨 Customizable date formatting
+- ⚡ High performance and easy to use
+- 📚 Comprehensive documentation and practical examples
 
-```console
+## 🛠️ Installation
+
+```bash
 pip install temporis
 ```
-## Usage
 
-### Create a new datetime object
+## 💡 Usage Examples
+
+### Basic Date Operations
+
 ```python
 from datetime import datetime
 from temporis.temporis import Temporis
 from temporis.format import TemporisFormat
 from temporis.timezone import TemporisTz
 
+# Create a datetime object
+date = datetime(2024, 1, 1)
 
-# Create a new datetime object
-dt = datetime(2021, 1, 1, 0, 0, 0)
-# Add 5 hours to the datetime
-dt = Temporis.add_hours(dt, 5)
-# Add 5 days to the datetime
-dt = Temporis.add_days(dt, 5)
-# Minus 5 months to the datetime
-dt = Temporis.add_months(dt, -5)
-# Get the next business day
-dt = Temporis.next_business_day(dt)
-# Get the next quarter
-dt = Temporis.next_quarter(dt)
-# Apply UTC timezone to the datetime
-dt = TemporisTz.to_UTC(dt)
-# Print the datetime
-print(Temporis.to_str(dt, format_str=TemporisFormat.YEAR_MONTH_DAY))
+# Date manipulation
+date = Temporis.add_hours(date, 5)           # Add 5 hours
+date = Temporis.add_days(date, 3)            # Add 3 days
+date = Temporis.next_business_day(date)      # Get next business day
+
+# Timezone change
+date_utc = TemporisTz.to_UTC(date)
+
+# Date formatting
+date_str = Temporis.to_str(date, format_str=TemporisFormat.YEAR_MONTH_DAY)
+print(date_str)  # Output: 2024-01-04
 ```
 
-##  Repository Structure
+### Advanced Calculations
 
-```sh
-└── temporis/
-    ├── LICENSE
-    ├── pdm.lock
-    ├── pyproject.toml
-    ├── README.md
-    ├── src
-    │   └── temporis
-    └── tests
-        ├── __init__.py
-        ├── test_datetime.py
-        └── test_timezone.py
+```python
+# Get next quarter
+next_quarter = Temporis.next_quarter(date)
+
+# Check if it's a business day
+is_business = Temporis.is_business_day(date)
+
+# Calculate difference between dates
+difference = Temporis.diff_days(date1, date2)
 ```
 
-## License
+## 📁 Project Structure
 
-`temporis` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
+```
+temporis/
+├── src/
+│   └── temporis/
+│       ├── __init__.py
+│       ├── temporis.py
+│       ├── format.py
+│       └── timezone.py
+├── tests/
+│   ├── test_datetime.py
+│   └── test_timezone.py
+├── LICENSE
+├── README.md
+└── pyproject.toml
+```
+
+## 🤝 Contributing
+
+Contributions are welcome. Please feel free to:
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add: AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## 📫 Contact
+
+- GitHub: [@jalvarezgom](https://github.com/jalvarezgom)
+- PyPI: [temporis](https://pypi.org/project/temporis/)
+
+---
+
+<p align="center">
+    <em>Developed with ❤️ by Jancel</em>
+</p>
