@@ -7,7 +7,6 @@ authors = [
 ]
 dependencies = [
     "tzdata>=2024.1",
-    "pytz>=2024.2",
     "python-dateutil>=2.9.0.post0",
 ]
 requires-python = ">=3.10"
@@ -17,6 +16,14 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
+]
+
+[dependency-groups]
+test = [
+    "pytest>=8.3.2",
+]
+lint = [
+    "ruff>=0.5.5",
 ]
 
 [project.urls]
@@ -29,14 +36,6 @@ build-backend = "pdm.backend"
 
 [tool.pdm]
 distribution = true
-
-[tool.pdm.dev-dependencies]
-lint = [
-    "ruff>=0.5.5",
-]
-test = [
-    "pytest>=8.3.2",
-]
 
 [tool.pdm.scripts]
 lint.composite = ["ruff check --fix", "ruff format"]
