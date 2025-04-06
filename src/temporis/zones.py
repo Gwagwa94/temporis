@@ -2,6 +2,10 @@ from enum import StrEnum
 
 
 class TemporisZone:
+    """
+    A class to represent different time zones categorized by regions.
+    """
+
     class AFRICA(StrEnum):
         ABIDJAN = "Africa/Abidjan"
         ACCRA = "Africa/Accra"

@@ -46,6 +46,7 @@ def test_apply_and_localize(temporis_tz):
     localized = temporis_tz.localize(dt)
     assert localized.tzinfo == converted.tzinfo
 
+
 def test_replace(temporis_tz):
     tz = TemporisTz(TemporisZone.AMERICA.NEW_YORK)
     dt = datetime(2023, 1, 1, tzinfo=timezone.utc)

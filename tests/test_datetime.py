@@ -1,7 +1,7 @@
 from datetime import datetime, date
 
-from temporis.temporis import Temporis
-from temporis.format import TemporisFormat
+from src.temporis.temporis import Temporis
+from src.temporis.format import TemporisFormat
 
 
 def test_datetime_format_change_delimiter():
