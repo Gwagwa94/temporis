@@ -3,8 +3,8 @@ from datetime import datetime, timezone
 
 import pytest
 
-from temporis.timezone import TemporisTz
-from temporis.zones import TemporisZone
+from src.temporis.timezone import TemporisTz
+from src.temporis.zones import TemporisZone
 
 
 @pytest.fixture
@@ -45,3 +45,10 @@ def test_apply_and_localize(temporis_tz):
     converted = temporis_tz.apply(dt)
     localized = temporis_tz.localize(dt)
     assert localized.tzinfo == converted.tzinfo
+
+def test_replace(temporis_tz):
+    tz = TemporisTz(TemporisZone.AMERICA.NEW_YORK)
+    dt = datetime(2023, 1, 1, tzinfo=timezone.utc)
+    replaced = tz.replace(dt)
+    assert dt.hour == replaced.hour
+    assert replaced.tzinfo != temporis_tz.tz_info

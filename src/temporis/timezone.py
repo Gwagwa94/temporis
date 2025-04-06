@@ -18,6 +18,9 @@ class TemporisTz:
     def apply(self, dt: datetime):
         return dt.astimezone(self._pytz_info)
 
+    def replace(self, dt: datetime):
+        return self.localize(dt.replace(tzinfo=None))
+
     def localize(self, dt: datetime):
         return self._pytz_info.localize(dt)
 
