@@ -3,7 +3,7 @@ from datetime import datetime
 
 import pytz
 
-from src.temporis.zones import TemporisZone
+from temporis.zones import TemporisZone
 
 
 class TemporisTz:

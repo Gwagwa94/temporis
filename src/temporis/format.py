@@ -1,4 +1,4 @@
-from src.temporis.references import TemporisReference as DT_REF
+from temporis.references import TemporisReference as DT_REF
 
 
 class TemporisFormat:
@@ -23,6 +23,8 @@ class TemporisFormat:
         The date and time format for filenames in 'YYYYMMDDHHMMSS'.
     ISOFORMAT : str
         The ISO 8601 date and time format in 'YYYY-MM-DDTHH:MM:SS.mmmmmm'.
+    ISOFORMAT_WITHOUT_MICROSECOND : str
+        The ISO 8601 date and time format in 'YYYY-MM-DDTHH:MM:SS'.
     WITH_TZINFO : str
         The date and time format with timezone in 'YYYY-MM-DD HH:MM:SS%z'.
     __exclude__ : set
@@ -38,10 +40,11 @@ class TemporisFormat:
     TIMESTAMP_DATETIME_FILENAME = (
         f"{TIMESTAMP_DATE_FILENAME}{DT_REF.HOUR_24}{DT_REF.MINUTE}{DT_REF.SECOND}"
     )
-    ISOFORMAT = f"{YEAR_MONTH_DAY}T{DT_REF.HOUR_24}:{DT_REF.MINUTE}:{DT_REF.SECOND}.{DT_REF.MICROSECOND}"
+    ISOFORMAT_WITHOUT_MICROSECOND = f"{YEAR_MONTH_DAY}T{DT_REF.HOUR_24}:{DT_REF.MINUTE}:{DT_REF.SECOND}"
+    ISOFORMAT = f"{ISOFORMAT_WITHOUT_MICROSECOND}.{DT_REF.MICROSECOND}"
     WITH_TZINFO = f"{YEAR_MONTH_DAY_HOUR_MINUTE_SECOND}%z"
 
-    __exclude__ = {"ISOFORMAT"}
+    __exclude__ = {"ISOFORMAT", "ISOFORMAT_WITHOUT_MICROSECOND"}
 
     def __init__(self, datetime_delimiter: str | None = None):
         """

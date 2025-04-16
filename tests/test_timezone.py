@@ -3,8 +3,8 @@ from datetime import datetime, timezone
 
 import pytest
 
-from src.temporis.timezone import TemporisTz
-from src.temporis.zones import TemporisZone
+from temporis.timezone import TemporisTz
+from temporis.zones import TemporisZone
 
 
 @pytest.fixture
