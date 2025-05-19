@@ -26,6 +26,14 @@ class Temporis:
     def from_str(date_str: str, format_str: str) -> datetime:
         """Parses a string to a datetime object based on the given format."""
         return datetime.strptime(date_str, format_str)
+        
+    @staticmethod
+    def change_format(from_format: str, to_format: str, date: datetime | str) -> datetime | str:
+        """Changes the format of a date from one format to another"""
+        if isinstance(date, str):
+            return Temporis.to_str(Temporis.from_str(date, from_format), to_format)
+        else:
+            return Temporis.from_str(Temporis.to_str(date, from_format), to_format)
 
     @staticmethod
     def add_seconds(dt: datetime, seconds: int) -> datetime:
